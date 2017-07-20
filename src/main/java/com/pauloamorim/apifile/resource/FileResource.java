@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,9 +22,9 @@ public class FileResource {
 	private List<File> listFiles = new ArrayList<File>();
 
 	@RequestMapping(method=RequestMethod.POST)
-	public void upload(MultipartHttpServletRequest request, HttpServletResponse response){
+	public void upload(MultipartHttpServletRequest requestFile,HttpServletRequest requestPost){
 		
-		MultipartFile multipartFile = request.getFile(request.getFileNames().next());
+		MultipartFile multipartFile = requestFile.getFile(requestFile.getFileNames().next());
 		File file = new File(multipartFile.getOriginalFilename());
 		
 		//TODO REFACTORY EXCEPTION
@@ -33,8 +34,6 @@ public class FileResource {
 		} catch (IOException e) {
 		}
 		
-		
-		System.out.println(request.getFileNames());
 	}
 
 	
