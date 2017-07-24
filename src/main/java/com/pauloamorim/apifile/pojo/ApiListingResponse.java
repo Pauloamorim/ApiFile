@@ -7,7 +7,7 @@ public class ApiListingResponse {
 	private String identification;
 	private String fileName;
 	private StatusUploadFile status;
-	private Double sendingTime;
+	private Long sendingTime;
 	private Integer chunksQuantity;
 	private String linkDownloadFile;
 	
@@ -33,10 +33,10 @@ public class ApiListingResponse {
 	public void setStatus(StatusUploadFile status) {
 		this.status = status;
 	}
-	public Double getSendingTime() {
+	public Long getSendingTime() {
 		return sendingTime;
 	}
-	public void setSendingTime(Double sendingTime) {
+	public void setSendingTime(Long sendingTime) {
 		this.sendingTime = sendingTime;
 	}
 	public Integer getChunksQuantity() {
