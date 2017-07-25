@@ -1,5 +1,9 @@
 package com.pauloamorim.apifile.pojo;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.pauloamorim.apifile.enums.StatusUploadFile;
 
 public class ApiListingResponse {
@@ -7,9 +11,10 @@ public class ApiListingResponse {
 	private String identification;
 	private String fileName;
 	private StatusUploadFile status;
-	private Long sendingTime;
+	private double sendingTime;
 	private Integer chunksQuantity;
 	private String linkDownloadFile;
+	private File file;
 	
 	//////////////////////////////////////////////////
 	//////////////////	GETTERS AND SETTERS //////////
@@ -33,10 +38,10 @@ public class ApiListingResponse {
 	public void setStatus(StatusUploadFile status) {
 		this.status = status;
 	}
-	public Long getSendingTime() {
+	public double getSendingTime() {
 		return sendingTime;
 	}
-	public void setSendingTime(Long sendingTime) {
+	public void setSendingTime(double sendingTime) {
 		this.sendingTime = sendingTime;
 	}
 	public Integer getChunksQuantity() {
@@ -50,6 +55,12 @@ public class ApiListingResponse {
 	}
 	public void setLinkDownloadFile(String linkDownloadFile) {
 		this.linkDownloadFile = linkDownloadFile;
+	}
+	public File getFile() {
+		return file;
+	}
+	public void setFile(File file) {
+		this.file = file;
 	}
 	
 }
