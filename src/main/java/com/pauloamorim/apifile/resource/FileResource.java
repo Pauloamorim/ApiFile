@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.pauloamorim.apifile.Util;
 import com.pauloamorim.apifile.enums.StatusUploadFile;
+import com.pauloamorim.apifile.exception.handler.HandlerException;
 import com.pauloamorim.apifile.pojo.ApiListingResponse;
 
 import io.swagger.annotations.ApiOperation;
@@ -31,6 +32,11 @@ public class FileResource {
 	private Map<String, ApiListingResponse> map = new HashMap<String, ApiListingResponse>();
 	private List<ApiListingResponse> listFiles = new ArrayList<ApiListingResponse>();
 
+	/**
+	 * @param requestFile
+	 * @throws IOException The Excpetion is captures in Class {@link HandlerException}
+	 */
+	
 	@RequestMapping(value="/upload", method=RequestMethod.POST)
 	@ApiOperation(value="Upload File to server")
 	@ApiResponse(code=200,message="Success")
