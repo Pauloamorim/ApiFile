@@ -1,6 +1,6 @@
 # ApiFile
 
-Depois de baixar o projeto e importar no STS, rodar o comando maven para rodar o projeto: 
+Depois de baixar o projeto e importar no STS(Spring Tool Suite) ou Eclipse, rodar o comando maven para rodar o projeto: 
 
 	spring-boot:run
 
