@@ -31,6 +31,7 @@ import io.swagger.annotations.ApiResponse;
 public class FileResource {
 	private Map<String, ApiListingResponse> map = new HashMap<String, ApiListingResponse>();
 	private List<ApiListingResponse> listFiles = new ArrayList<ApiListingResponse>();
+	private static final String linkDownload = "localhost:8080/file/download/";
 
 	/**
 	 * @param requestFile
@@ -91,7 +92,7 @@ public class FileResource {
 		if(getMap().containsKey(fileName)){
 			apiListingResponse = getMap().get(fileName);
 			//sum the time execution
-			double time = apiListingResponse.getSendingTime()+Util.convertNanoToSeconds(start, System.nanoTime());
+			BigDecimal time = apiListingResponse.getSendingTime().add(Util.convertNanoToSeconds(start, System.nanoTime()));
 			apiListingResponse.setChunksQuantity(apiListingResponse.getChunksQuantity()+1);
 			apiListingResponse.setSendingTime(time);
 			apiListingResponse.setFile(file);
@@ -120,7 +121,7 @@ public class FileResource {
 		apiListingResponse.setIdentification(requestFile.getParameter("identification"));
 		apiListingResponse.setChunksQuantity(1);
 		apiListingResponse.setSendingTime(Util.convertNanoToSeconds(start, System.nanoTime()));
-		apiListingResponse.setLinkDownloadFile(""); //TODO
+		apiListingResponse.setLinkDownloadFile(linkDownload.concat(fileName));
 		apiListingResponse.setFile(file);
 		return apiListingResponse;
 	}

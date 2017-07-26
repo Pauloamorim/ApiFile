@@ -1,9 +1,9 @@
 package com.pauloamorim.apifile.pojo;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pauloamorim.apifile.enums.StatusUploadFile;
 
 public class ApiListingResponse {
@@ -11,9 +11,10 @@ public class ApiListingResponse {
 	private String identification;
 	private String fileName;
 	private StatusUploadFile status;
-	private double sendingTime;
+	private BigDecimal sendingTime;
 	private Integer chunksQuantity;
 	private String linkDownloadFile;
+	@JsonIgnore
 	private File file;
 	
 	//////////////////////////////////////////////////
@@ -38,10 +39,10 @@ public class ApiListingResponse {
 	public void setStatus(StatusUploadFile status) {
 		this.status = status;
 	}
-	public double getSendingTime() {
+	public BigDecimal getSendingTime() {
 		return sendingTime;
 	}
-	public void setSendingTime(double sendingTime) {
+	public void setSendingTime(BigDecimal sendingTime) {
 		this.sendingTime = sendingTime;
 	}
 	public Integer getChunksQuantity() {
